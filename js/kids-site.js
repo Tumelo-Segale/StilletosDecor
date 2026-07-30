@@ -293,7 +293,7 @@ window.STILLETOS_KIDS = (function () {
       })
       .join("");
     return (
-      '<div class="k-section-head"><h2>Kiddies Setup Gallery</h2><p>Bespoke thematic setups by the Stilletos Kids team. Tap any tile to view it larger.</p></div>' +
+      '<div class="k-section-head"><h2>Kiddies Setup Gallery</h2><p>Tailored thematic setups by the Stilletos Kids team. Tap any tile to view it larger.</p></div>' +
       '<div class="k-gallery-frame" data-kids-gallery-frame><div class="k-gallery-grid">' +
       tiles +
       "</div></div>" +

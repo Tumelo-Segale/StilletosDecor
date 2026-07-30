@@ -160,7 +160,7 @@ window.STILLETOS_DATA = (function () {
     },
     {
       id: "srv-3",
-      title: "Bespoke Table Styling",
+      title: "Tailored Table Styling",
       description:
         "The table is your canvas. We design cohesive, jaw-dropping tablescapes featuring ribbed amber glassware, gold beaded charger plates, custom black napkins, and breathtaking floral displays.",
       features: [

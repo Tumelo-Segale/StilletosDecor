@@ -153,7 +153,7 @@ window.STILLETOS_ADULT = (function () {
       })
       .join("");
     return (
-      '<div class="a-section-head"><h2>Our Signature Gallery</h2><p>Bespoke signature setups by the Stilletos Decor team. Tap any tile to view it larger.</p></div>' +
+      '<div class="a-section-head"><h2>Our Signature Gallery</h2><p>Tailored signature setups by the Stilletos Decor team. Tap any tile to view it larger.</p></div>' +
       '<div class="gallery-frame" data-gallery-frame><div class="gallery-grid">' +
       tiles +
       "</div></div>" +
