@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Stilletos Decor — adult site renderer
+   Stilletos Decor - adult site renderer
    ========================================================================== */
 
 window.STILLETOS_ADULT = (function () {
@@ -59,15 +59,32 @@ window.STILLETOS_ADULT = (function () {
     );
   }
 
+  function colorsHtml(colors) {
+    if (!colors || !colors.length) return "";
+    const parts = colors
+      .map((c) => (c.price ? c.name + " – " + c.price : c.name))
+      .join(", ");
+    return (
+      '<div class="rental-colors"><span class="rental-colors-label">Also available:</span> ' +
+      parts +
+      "</div>"
+    );
+  }
+
   function renderRentals() {
     const cards = DATA.ADULT_RENTALS.map(
       (item) =>
         '<div class="rental-card">' +
-        "<div><h4>" +
+        '<div class="rental-media"><img src="' +
+        item.image +
+        '" alt="' +
         item.name +
-        "</h4><p>" +
-        item.description +
-        "</p></div>" +
+        '" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>' +
+        '<div class="rental-body">' +
+        "<h4>" +
+        item.name +
+        "</h4>" +
+        colorsHtml(item.colors) +
         '<div class="rental-footer">' +
         '<span class="rental-price">' +
         item.price +
@@ -77,6 +94,7 @@ window.STILLETOS_ADULT = (function () {
         '">' +
         svgCart() +
         " Add to Quote</button>" +
+        "</div>" +
         "</div>" +
         "</div>"
     ).join("");
@@ -207,13 +225,37 @@ window.STILLETOS_ADULT = (function () {
     });
   }
 
+  function bindRentalMediaClicks(root) {
+    root.querySelectorAll(".rental-media img").forEach((img) => {
+      img.addEventListener("click", () => {
+        window.STILLETOS_LIGHTBOX.open(
+          img.getAttribute("src"),
+          img.getAttribute("alt")
+        );
+      });
+    });
+  }
+
   function bindDynamicButtons(root) {
     root.querySelectorAll("[data-rental-id]").forEach((btn) => {
       btn.addEventListener("click", () => {
         const rental = DATA.ADULT_RENTALS.find(
           (r) => r.id === btn.getAttribute("data-rental-id")
         );
-        if (rental) window.STILLETOS_CART.addRental(rental);
+        if (!rental) return;
+        if (rental.colors && rental.colors.length) {
+          window.STILLETOS_VARIANTS.open(rental, (chosen) => {
+            window.STILLETOS_CART.addRental({
+              id: rental.id,
+              name: rental.name,
+              price: chosen.price,
+              category: rental.category,
+              option: chosen.label === "Standard" ? null : chosen.label,
+            });
+          });
+        } else {
+          window.STILLETOS_CART.addRental(rental);
+        }
       });
     });
     root.querySelectorAll("[data-goto-tab]").forEach((btn) => {
@@ -222,6 +264,7 @@ window.STILLETOS_ADULT = (function () {
       );
     });
     bindGalleryClicks(root);
+    bindRentalMediaClicks(root);
   }
 
   function setTab(tab) {

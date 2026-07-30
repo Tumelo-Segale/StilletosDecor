@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Stilletos Decor — app controller
+   Stilletos Decor - app controller
    Wires up the adult/kids experience toggle (with curtain transition)
    and boots the cart + both site renderers.
    ========================================================================== */
@@ -245,6 +245,7 @@
   function init() {
     safeInit("cart", window.STILLETOS_CART.init);
     safeInit("lightbox", window.STILLETOS_LIGHTBOX.init);
+    safeInit("variant modal", window.STILLETOS_VARIANTS.init);
     safeInit("adult site", window.STILLETOS_ADULT.init);
     safeInit("kids site", window.STILLETOS_KIDS.init);
     safeInit("nav sidebar", initNavSidebar);

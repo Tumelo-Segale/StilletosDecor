@@ -256,6 +256,26 @@ body.experience-kids .cart-footer {
 .cart-summary-row strong {
   opacity: 1;
 }
+.cart-summary-total {
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px solid #26221a;
+  opacity: 1;
+}
+body.experience-kids .cart-summary-total {
+  border-top-color: #fbcfe8;
+}
+.cart-summary-total span {
+  font-size: 15px;
+  font-weight: 700;
+}
+.cart-summary-total strong {
+  font-size: 19px;
+  color: var(--a-gold);
+}
+body.experience-kids .cart-summary-total strong {
+  color: var(--k-pink-dark);
+}
 .cart-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -336,4 +356,137 @@ body.experience-kids .toast {
 }
 body.experience-kids .toast svg {
   color: var(--k-pink);
+}
+
+/* ---------- Rental color / variant select modal ---------- */
+.variant-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease);
+}
+.variant-modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+body.variant-modal-open {
+  overflow: hidden;
+}
+
+.variant-modal-box {
+  width: 100%;
+  max-width: 420px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 28px 24px 24px;
+  background: #141412;
+  color: var(--a-text);
+  border: 1px solid var(--a-gold-dim);
+  border-radius: var(--radius);
+  transform: translateY(12px) scale(0.98);
+  transition: transform 0.25s var(--ease);
+}
+.variant-modal-overlay.open .variant-modal-box {
+  transform: translateY(0) scale(1);
+}
+body.experience-kids .variant-modal-box {
+  background: #fff;
+  color: var(--k-text);
+  border-color: #fbcfe8;
+}
+
+.variant-modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  color: var(--a-text-dim);
+}
+.variant-modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+body.experience-kids .variant-modal-close-btn:hover {
+  background: #fce7f3;
+}
+.variant-modal-close-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.variant-modal-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  color: var(--a-gold);
+  padding-right: 30px;
+  margin-bottom: 4px;
+}
+body.experience-kids .variant-modal-title {
+  font-family: "Baloo 2", cursive;
+  color: var(--k-purple-dark);
+}
+
+.variant-modal-sub {
+  font-size: 13px;
+  color: var(--a-text-dim);
+  margin-bottom: 18px;
+}
+body.experience-kids .variant-modal-sub {
+  color: #6b21a8aa;
+  font-weight: 600;
+}
+
+.variant-option-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.variant-option-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--a-gold-dim);
+  background: rgba(255, 255, 255, 0.02);
+  text-align: left;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.variant-option-btn:hover {
+  border-color: var(--a-gold);
+  background: rgba(201, 163, 95, 0.08);
+}
+body.experience-kids .variant-option-btn {
+  border-color: #fbcfe8;
+  background: #fdf2f8;
+}
+body.experience-kids .variant-option-btn:hover {
+  border-color: var(--k-pink);
+  background: #fce7f3;
+}
+.variant-option-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+.variant-option-price {
+  font-weight: 700;
+  color: var(--a-gold);
+  font-size: 14px;
+  white-space: nowrap;
+}
+body.experience-kids .variant-option-price {
+  color: var(--k-pink-dark);
 }

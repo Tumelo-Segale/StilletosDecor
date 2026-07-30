@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Stilletos Decor — shared gallery lightbox
+   Stilletos Decor - shared gallery lightbox
    Used by both the adult and kids gallery renderers to pop an image or
    video up into a full-screen preview.
    ========================================================================== */

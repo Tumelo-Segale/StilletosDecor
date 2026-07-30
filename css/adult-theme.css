@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Adult experience — Stilletos Decor (elegant black & gold)
+   Adult experience - Stilletos Decor (elegant black & gold)
    ========================================================================== */
 
 #adult-site {
@@ -298,33 +298,85 @@
   border: 1px solid var(--a-gold-dim);
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.02);
-  padding: 22px;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
-  gap: 18px;
+  flex-direction: row;
+  align-items: stretch;
   transition: border-color 0.2s var(--ease);
 }
 .rental-card:hover {
   border-color: rgba(201, 163, 95, 0.5);
 }
+.rental-media {
+  position: relative;
+  flex-shrink: 0;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #141412;
+  cursor: zoom-in;
+}
+.rental-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+  transition: transform 0.3s var(--ease);
+}
+.rental-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(201, 163, 95, 0);
+  transition: background-color 0.2s var(--ease);
+  pointer-events: none;
+}
+.rental-media:hover::after {
+  background: rgba(201, 163, 95, 0.1);
+}
+.rental-media:hover img {
+  transform: scale(1.06);
+}
+.rental-body {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
 .rental-card h4 {
   font-family: "Cormorant Garamond", serif;
-  font-size: 19px;
+  font-size: 18px;
   color: #fff;
-  margin-bottom: 8px;
 }
-.rental-card p {
-  font-size: 14px;
+.rental-colors {
+  font-size: 13px;
   color: var(--a-text-dim);
-  line-height: 1.6;
+  line-height: 1.5;
   font-weight: 300;
+}
+.rental-colors-label {
+  color: var(--a-gold);
+  font-weight: 600;
 }
 .rental-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 14px;
-  border-top: 1px solid var(--a-gold-dim);
+  gap: 10px;
+  flex-wrap: wrap;
+}
+@media (max-width: 420px) {
+  .rental-media {
+    width: 92px;
+  }
+  .rental-body {
+    padding: 12px 14px;
+  }
 }
 .rental-price {
   font-family: "Cormorant Garamond", serif;

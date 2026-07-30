@@ -10,10 +10,6 @@
     content="Rustenburg's premier event styling studio. Bespoke black-and-gold decor for adult celebrations and whimsical themed party packages for kids, based in Chaneng.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- These two are the only images visible the instant the page paints
-       (header logo + the default adult hero photo), so we kick off their
-       fetch as early as possible, in parallel with the CSS/font requests,
-       instead of waiting for the parser to reach the <img> tags below. -->
   <link rel="preload" as="image" href="assets/images/StilletosLogo.jpeg" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/adult-hero.jpeg" fetchpriority="high">
   <link
@@ -51,9 +47,7 @@
           <span class="brand-sub" id="header-brand-sub">Styling &amp; Rentals</span>
         </div>
       </div>
-      <!-- On desktop this sits inline between the brand and the header icons;
-           on mobile it stays empty (display:none) and JS relocates the same
-           #adult-nav-links / #kids-nav-links elements into the sidebar instead. -->
+
       <nav class="header-nav" id="header-nav-slot" aria-label="Primary">
         <div class="tab-list no-scrollbar" id="adult-nav-links" data-nav-links="adult">
           <button type="button" class="tab-btn active" data-tab="services">Services</button>
@@ -376,8 +370,9 @@
     </div>
     <div id="cart-list" class="cart-list"></div>
     <div id="cart-footer" class="cart-footer" style="display:none">
-      <div class="cart-summary-row"><span>Total Distinct Items</span><strong id="cart-distinct-count">0</strong></div>
       <div class="cart-summary-row"><span>Total Items</span><strong id="cart-total-count">0</strong></div>
+      <div class="cart-summary-row cart-summary-total"><span>Estimated Total</span><strong
+          id="cart-total-amount">R0</strong></div>
       <div class="cart-actions">
         <button type="button" id="cart-clear-btn" class="cart-clear-btn">Clear All</button>
         <a id="cart-whatsapp-link" class="cart-submit-btn" href="#" target="_blank" rel="noreferrer">
@@ -408,9 +403,25 @@
     </div>
   </div>
 
+  <!-- RENTAL COLOR / VARIANT SELECT MODAL -->
+  <div id="variant-modal-overlay" class="variant-modal-overlay" role="dialog" aria-modal="true"
+    aria-label="Choose an option">
+    <div class="variant-modal-box">
+      <button type="button" id="variant-modal-close" class="variant-modal-close-btn" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div id="variant-modal-content" class="variant-modal-content"></div>
+    </div>
+  </div>
+
   <script src="js/data.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/lightbox.js"></script>
+  <script src="js/variant-modal.js"></script>
   <script src="js/adult-site.js"></script>
   <script src="js/kids-site.js"></script>
   <script src="js/app.js"></script>

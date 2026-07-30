@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Stilletos Decor & Catering — static data
+   Stilletos Decor & Catering - static data
    Plain global object so this loads with a normal <script> tag (no modules,
    no build step, works straight off the filesystem).
    ========================================================================== */
@@ -27,128 +27,121 @@ window.STILLETOS_DATA = (function () {
       id: "rent-1",
       name: "Gold Phoenix Chair",
       category: "furniture",
-      price: "R45 / item",
-      description:
-        "High-gloss acrylic Phoenix chair with gold finish frame, perfect for special celebrations and formal dinner events.",
+      price: "R30",
+      image: "assets/images/rentals/rent-1.jpg",
+      colors: [{ name: "White", price: "R25" }],
     },
     {
       id: "rent-2",
-      name: "Classic Velvet Throne Chair",
+      name: "Nude Single Chair",
       category: "furniture",
-      price: "R850 / day",
-      description:
-        "Plush high-back tufted velvet lounge chair with gold frame. Available in black, emerald green, and white.",
+      price: "R250",
+      image: "assets/images/rentals/rent-2.jpg",
+      colors: [{ name: "Black" }],
     },
     {
       id: "rent-3",
-      name: "Ribbed Amber Wine Glasses",
-      category: "tableware",
-      price: "R12 / item",
-      description:
-        "Stunning vintage-styled amber glassware with ribbed texture. Adds a warm, elegant glow to your table setting.",
+      name: "Louis Chair",
+      category: "furniture",
+      price: "R40",
+      image: "assets/images/rentals/rent-3.jpg",
     },
     {
       id: "rent-4",
-      name: "Gold-Rimmed Clear Champagne Flutes",
-      category: "tableware",
-      price: "R15 / item",
-      description:
-        "Crystal-clear champagne flutes with a delicate, painted gold rim. Set of 10 or individual rentals.",
+      name: "Black CrossBack Chair",
+      category: "furniture",
+      price: "R35",
+      image: "assets/images/rentals/rent-4.jpg",
     },
     {
       id: "rent-5",
-      name: "24k Matte Gold Cutlery Set",
-      category: "tableware",
-      price: "R35 / set",
-      description:
-        "Premium stainless steel cutlery set with a matte gold finish. Includes dinner fork, knife, spoon, and dessert spoon.",
-    },
-    {
-      id: "rent-6",
-      name: "Organic Rounded Gold Arch",
-      category: "decor",
-      price: "R450 / day",
-      description:
-        "Circular iron frame arch in matte gold. Easy to assemble, perfect as a backdrop for special vows, photography, or photo booths.",
-    },
-    {
-      id: "rent-7",
-      name: "White High-Gloss Plinth Set",
-      category: "decor",
-      price: "R300 / set",
-      description:
-        "Set of 3 cylinders of varying heights for displaying cakes, floral arrangements, or party favors.",
-    },
-    {
-      id: "rent-8",
-      name: "Gold Beaded Glass Underplate",
-      category: "tableware",
-      price: "R18 / item",
-      description:
-        "Clear glass charger plates with a shimmering gold-beaded outer edge, perfect for layered table designs.",
+      name: "Double Seater Couch",
+      category: "furniture",
+      price: "R550",
+      image: "assets/images/rentals/rent-5.jpg",
+      colors: [
+        { name: "Blue" },
+        { name: "Green" },
+        { name: "Black" },
+        { name: "Nude" },
+      ],
     },
   ];
 
   const KIDS_RENTALS = [
     {
       id: "kids-rent-1",
-      name: "Mini White Tiffany Chair",
+      name: "Gold Vanity Chair",
       category: "kids",
-      price: "R25 / item",
-      image:
-        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80",
-      description:
-        "Adorable, sturdy child-sized classic Tiffany chairs. Available in pink, blue, white, and clear.",
+      price: "R40",
+      image: "assets/images/rentals/kids-rent-1.jpg",
     },
     {
       id: "kids-rent-2",
-      name: "Pastel Butterfly Chair",
+      name: "Single Chair",
       category: "kids",
-      price: "R30 / item",
-      image:
-        "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=600&q=80",
-      description:
-        "Whimsical butterfly-winged backrest chairs for a fairy, garden, or princess-themed table setup.",
+      price: "R150",
+      image: "assets/images/rentals/kids-rent-2.jpg",
+      colors: [{ name: "Pink" }, { name: "White" }, { name: "Blue" }],
     },
     {
       id: "kids-rent-3",
-      name: "Kid-Sized Low Picnic Table",
+      name: "Kids High Chair",
       category: "kids",
-      price: "R150 / day",
-      image:
-        "https://images.unsplash.com/photo-1471967183320-ee018f6e114a?auto=format&fit=crop&w=600&q=80",
-      description:
-        "Low wooden pallet style tables perfect for floor seating with cushions. Accommodates 6-8 kids.",
+      price: "R150",
+      image: "assets/images/rentals/kids-rent-3.jpg",
     },
     {
       id: "kids-rent-4",
-      name: "Pastel Blue & Pink Candy Cart",
+      name: "Kids Tiffany Chair",
       category: "kids",
-      price: "R650 / day",
-      image:
-        "https://images.unsplash.com/photo-1533223136615-5058ae15fb33?auto=format&fit=crop&w=600&q=80",
-      description:
-        "Vintage-style wooden cart on wheels. Perfect for candy displays, popcorn machines, or milkshakes.",
+      price: "R18",
+      image: "assets/images/rentals/kids-rent-4.jpg",
     },
     {
       id: "kids-rent-5",
-      name: "Multi-Color Jumping Castle (3x3m)",
+      name: "Kids Penny Chair",
       category: "kids",
-      price: "R450 / day",
-      image:
-        "https://images.unsplash.com/photo-1572244144380-600694efb301?auto=format&fit=crop&w=600&q=80",
-      description:
-        "Safe, bright, bouncy jumping castle with entry safety netting. Suitable for kids up to 10 years.",
+      price: "R35",
+      image: "assets/images/rentals/kids-rent-5.jpg",
     },
     {
       id: "kids-rent-6",
-      name: "White Bounce Castle with Slide",
+      name: "Kids Throne Chair",
       category: "kids",
-      price: "R1,200 / day",
-      image:
-        "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=600&q=80",
-      description:
-        "Premium chic all-white bounce castle. Highly popular for photoshoots, modern aesthetics, and custom balloons.",
+      price: "R120",
+      image: "assets/images/rentals/kids-rent-6.jpg",
+    },
+  ];
+
+  const KIDS_ACCESSORIES = [
+    {
+      id: "kids-acc-1",
+      name: "Butterfly Accessory",
+      category: "kids accessory",
+      price: "R60",
+      image: "assets/images/rentals/kids-acc-1.jpg",
+    },
+    {
+      id: "kids-acc-2",
+      name: "Cocomelon Bus",
+      category: "kids accessory",
+      price: "R80",
+      image: "assets/images/rentals/kids-acc-2.jpg",
+    },
+    {
+      id: "kids-acc-3",
+      name: "White Jumping Castle",
+      category: "kids accessory",
+      price: "R1200",
+      image: "assets/images/rentals/kids-acc-3.jpg",
+    },
+    {
+      id: "kids-acc-4",
+      name: "Small 3x3 Jumping Castle",
+      category: "kids accessory",
+      price: "R550",
+      image: "assets/images/rentals/kids-acc-4.jpg",
     },
   ];
 
@@ -263,57 +256,6 @@ window.STILLETOS_DATA = (function () {
     },
   ];
 
-  const KIDS_OUTFITS = [
-    {
-      id: "outfit-1",
-      name: "Princess Ball Gown",
-      category: "outfit",
-      price: "R180 / day",
-      description:
-        "Sparkling layered tulle ball gown with matching tiara, available in blush, lilac, and sky blue. Sizes 2-10 years.",
-    },
-    {
-      id: "outfit-2",
-      name: "Superhero Costume Set",
-      category: "outfit",
-      price: "R150 / day",
-      description:
-        "Padded muscle-chest superhero costume with cape and mask. Great for photo booths and party entrances.",
-    },
-    {
-      id: "outfit-3",
-      name: "Fairy Tale Tutu Dress",
-      category: "outfit",
-      price: "R120 / day",
-      description:
-        "Soft layered tutu with flower crown, perfect for garden and fairy themed parties. Sizes 1-8 years.",
-    },
-    {
-      id: "outfit-4",
-      name: "Little Prince Suit",
-      category: "outfit",
-      price: "R160 / day",
-      description:
-        "Sharp tailored waistcoat and bow-tie set for the birthday boy or ring bearer, sizes 2-10 years.",
-    },
-    {
-      id: "outfit-5",
-      name: "Animal Onesie Costume",
-      category: "outfit",
-      price: "R100 / day",
-      description:
-        "Cuddly lion, unicorn, or dinosaur onesie costumes, ideal for younger guests and themed photo sessions.",
-    },
-    {
-      id: "outfit-6",
-      name: "Cowboy & Cowgirl Outfit",
-      category: "outfit",
-      price: "R130 / day",
-      description:
-        "Vest, hat, and bandana set for western and rodeo themed celebrations, sizes 3-10 years.",
-    },
-  ];
-
   const ADULT_GALLERY_IMAGES = [
     "assets/images/adult-gallery-1.mp4",
     "assets/images/adult-gallery-2.jpeg",
@@ -369,10 +311,10 @@ window.STILLETOS_DATA = (function () {
     BUSINESS_INFO,
     ADULT_RENTALS,
     KIDS_RENTALS,
+    KIDS_ACCESSORIES,
     ADULT_SERVICES,
     KIDS_PACKAGES,
     KIDS_EXTRAS,
-    KIDS_OUTFITS,
     ADULT_GALLERY_IMAGES,
     KIDS_GALLERY_IMAGES,
   };

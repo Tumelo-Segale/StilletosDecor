@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Stilletos Kids — kids site renderer
+   Stilletos Kids - kids site renderer
    ========================================================================== */
 
 window.STILLETOS_KIDS = (function () {
@@ -181,60 +181,67 @@ window.STILLETOS_KIDS = (function () {
     );
   }
 
-  function renderRentals() {
-    const cards = DATA.KIDS_RENTALS.map(
-      (item) =>
-        '<div class="k-rental-card">' +
-        "<h4>" +
-        item.name +
-        "</h4><p>" +
-        item.description +
-        "</p>" +
-        '<div class="k-rental-footer">' +
-        '<span class="k-rental-price">' +
-        item.price +
-        "</span>" +
-        '<button type="button" class="k-add-btn" data-rental-id="' +
-        item.id +
-        '">' +
-        svgCart() +
-        " Add to Quote</button>" +
-        "</div>" +
-        "</div>"
-    ).join("");
+  function colorsHtml(colors) {
+    if (!colors || !colors.length) return "";
+    const parts = colors
+      .map((c) => (c.price ? c.name + " – " + c.price : c.name))
+      .join(", ");
     return (
-      '<div class="k-section-head"><h2>Kiddies Equipment Rentals</h2><p>Add colorful themed tables, butterfly chairs, and castles directly to your quote.</p></div>' +
+      '<div class="k-rental-colors"><span class="k-rental-colors-label">Also available:</span> ' +
+      parts +
+      "</div>"
+    );
+  }
+
+  function rentalCard(item) {
+    return (
+      '<div class="k-rental-card">' +
+      '<div class="k-rental-media"><img src="' +
+      item.image +
+      '" alt="' +
+      item.name +
+      '" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>' +
+      '<div class="k-rental-body">' +
+      "<h4>" +
+      item.name +
+      "</h4>" +
+      colorsHtml(item.colors) +
+      '<div class="k-rental-footer">' +
+      '<span class="k-rental-price">' +
+      item.price +
+      "</span>" +
+      '<button type="button" class="k-add-btn" data-rental-id="' +
+      item.id +
+      '">' +
+      svgCart() +
+      " Add to Quote</button>" +
+      "</div>" +
+      "</div>" +
+      "</div>"
+    );
+  }
+
+  function renderRentals() {
+    const cards = DATA.KIDS_RENTALS.map(rentalCard).join("");
+    const accessoryCards = DATA.KIDS_ACCESSORIES.map(rentalCard).join("");
+    return (
+      '<div class="k-section-head"><h2>Kiddies Equipment Rentals</h2><p>Add colorful themed chairs directly to your quote.</p></div>' +
       '<div class="k-rentals-grid">' +
       cards +
+      "</div>" +
+      '<div class="k-section-head" style="margin-top:52px"><h2>Accessories</h2><p>Fun extras and jumping castles to complete the party.</p></div>' +
+      '<div class="k-rentals-grid">' +
+      accessoryCards +
       "</div>"
     );
   }
 
   function renderOutfits() {
-    const cards = DATA.KIDS_OUTFITS.map(
-      (item) =>
-        '<div class="k-rental-card">' +
-        "<h4>" +
-        item.name +
-        "</h4><p>" +
-        item.description +
-        "</p>" +
-        '<div class="k-rental-footer">' +
-        '<span class="k-rental-price">' +
-        item.price +
-        "</span>" +
-        '<button type="button" class="k-add-btn" data-rental-id="' +
-        item.id +
-        '">' +
-        svgCart() +
-        " Add to Quote</button>" +
-        "</div>" +
-        "</div>"
-    ).join("");
     return (
-      '<div class="k-section-head"><h2>Outfits &amp; Costume Rentals</h2><p>Adorable dresses, suits, and costumes to complete the look for your little guests.</p></div>' +
-      '<div class="k-rentals-grid">' +
-      cards +
+      '<div class="k-section-head">' +
+      '<span class="k-badge">Outfits &amp; Costume Rentals</span>' +
+      "<h2>Coming Soon!</h2>" +
+      "<p>We're putting together an adorable new outfit rental collection - check back soon.</p>" +
       "</div>"
     );
   }
@@ -399,11 +406,36 @@ window.STILLETOS_KIDS = (function () {
         const id = btn.getAttribute("data-rental-id");
         const rental =
           DATA.KIDS_RENTALS.find((r) => r.id === id) ||
-          DATA.KIDS_OUTFITS.find((r) => r.id === id);
-        if (rental) window.STILLETOS_CART.addRental(rental);
+          DATA.KIDS_ACCESSORIES.find((r) => r.id === id);
+        if (!rental) return;
+        if (rental.colors && rental.colors.length) {
+          window.STILLETOS_VARIANTS.open(rental, (chosen) => {
+            window.STILLETOS_CART.addRental({
+              id: rental.id,
+              name: rental.name,
+              price: chosen.price,
+              category: rental.category,
+              option: chosen.label === "Standard" ? null : chosen.label,
+            });
+          });
+        } else {
+          window.STILLETOS_CART.addRental(rental);
+        }
       });
     });
     bindGalleryClicks(root);
+    bindRentalMediaClicks(root);
+  }
+
+  function bindRentalMediaClicks(root) {
+    root.querySelectorAll(".k-rental-media img").forEach((img) => {
+      img.addEventListener("click", () => {
+        window.STILLETOS_LIGHTBOX.open(
+          img.getAttribute("src"),
+          img.getAttribute("alt")
+        );
+      });
+    });
   }
 
   function setTab(tab) {

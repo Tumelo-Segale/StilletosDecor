@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Stilletos Decor — quote cart
+   Stilletos Decor - quote cart
    Handles cart state, localStorage persistence, drawer rendering,
    and building the WhatsApp inquiry message.
    ========================================================================== */
@@ -37,8 +37,36 @@ window.STILLETOS_CART = (function () {
     return items.reduce((sum, it) => sum + it.qty, 0);
   }
 
+  // Prices are authored as display strings ("R30", "R7 500", or embedded in
+  // a package option like "10 Kids - R7 500"). Pull the numeric Rand amount
+  // out of whichever field actually holds it so the cart can show a running
+  // estimated total without needing a separate numeric price field.
+  function parseAmount(str) {
+    if (!str) return 0;
+    const match = String(str).match(/R\s?([\d\s,.]+)/i);
+    if (!match) return 0;
+    const digits = match[1].replace(/[^\d]/g, "");
+    return digits ? parseInt(digits, 10) : 0;
+  }
+
+  function unitAmount(it) {
+    const source = it.type === "package" ? it.option : it.price;
+    return parseAmount(source);
+  }
+
+  function formatCurrency(amount) {
+    const rounded = Math.round(amount);
+    const withSpaces = String(rounded).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return "R" + withSpaces;
+  }
+
+  function totalAmount() {
+    return items.reduce((sum, it) => sum + unitAmount(it) * it.qty, 0);
+  }
+
   function addRental(rental) {
-    const idx = findIndex(rental.id, undefined);
+    const option = rental.option || null;
+    const idx = findIndex(rental.id, option);
     if (idx > -1) {
       items[idx].qty += 1;
     } else {
@@ -49,13 +77,12 @@ window.STILLETOS_CART = (function () {
         category: rental.category,
         type: "rental",
         qty: 1,
-        option: null,
+        option: option,
       });
     }
     persist();
     render();
     showToast(rental.name + " added to your quote");
-    openDrawer();
   }
 
   function addPackage(pkg, optionLabel) {
@@ -76,7 +103,6 @@ window.STILLETOS_CART = (function () {
     persist();
     render();
     showToast(pkg.name + " added to your quote");
-    openDrawer();
   }
 
   function removeItem(id, option) {
@@ -169,7 +195,12 @@ window.STILLETOS_CART = (function () {
               "</span>"
             : '<div class="cart-item-price">' +
               escapeHtml(it.price || "") +
-              "</div>";
+              "</div>" +
+              (it.option
+                ? '<span class="cart-item-tag">Color: ' +
+                  escapeHtml(it.option) +
+                  "</span>"
+                : "");
         return (
           '<div class="cart-item" data-key="' +
           key +
@@ -213,8 +244,10 @@ window.STILLETOS_CART = (function () {
       })
       .join("");
 
-    document.getElementById("cart-distinct-count").textContent = items.length;
     document.getElementById("cart-total-count").textContent = count;
+    const totalAmountEl = document.getElementById("cart-total-amount");
+    if (totalAmountEl)
+      totalAmountEl.textContent = formatCurrency(totalAmount());
 
     list.querySelectorAll("button[data-action]").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -247,6 +280,7 @@ window.STILLETOS_CART = (function () {
       } else {
         text +=
           index + 1 + ". *" + it.name + "* (" + it.category + " rental)\n";
+        if (it.option) text += "   - Color: " + it.option + "\n";
         text += "   - Price: " + it.price + "\n";
         text += "   - Qty: " + it.qty + "\n\n";
       }
