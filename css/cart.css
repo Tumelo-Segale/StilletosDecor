@@ -480,6 +480,10 @@ body.experience-kids .variant-option-btn:hover {
 .variant-option-name {
   font-weight: 600;
   font-size: 14px;
+  color: var(--a-gold);
+}
+body.experience-kids .variant-option-name {
+  color: var(--k-pink-dark);
 }
 .variant-option-price {
   font-weight: 700;
