@@ -103,9 +103,9 @@ h4 {
 }
 
 /* ---------- Universal interactive feedback ----------
-                   Every native <button> plus every anchor styled as a button gets a
-                   consistent hover/press transition, so controls always feel responsive
-                   even before any component-specific transition rules kick in. */
+                     Every native <button> plus every anchor styled as a button gets a
+                     consistent hover/press transition, so controls always feel responsive
+                     even before any component-specific transition rules kick in. */
 button,
 .btn,
 .social-btn,
@@ -194,11 +194,11 @@ body.experience-kids .site-header {
 }
 
 /* The header is now taken out of normal flow (position: fixed), so <main>
-             needs matching top padding or hero content would render underneath it.
-             The nav links live inline inside the single header-top row at every
-             breakpoint (desktop: next to the logo/cart icons, mobile: relocated
-             into the sidebar instead), so header-top's own height is always the
-             full header height - no second row to account for. */
+               needs matching top padding or hero content would render underneath it.
+               The nav links live inline inside the single header-top row at every
+               breakpoint (desktop: next to the logo/cart icons, mobile: relocated
+               into the sidebar instead), so header-top's own height is always the
+               full header height - no second row to account for. */
 main {
   padding-top: var(--header-h);
 }
@@ -213,10 +213,10 @@ main {
 }
 
 /* ---------- Header nav (per-experience tab links) ----------
-             On desktop these sit inline in the same row as the logo and cart icon,
-             centered in the space between them. On mobile the same elements are
-             relocated by JS into the sidebar instead, so this slot stays empty and
-             hidden rather than reserving a second row. */
+               On desktop these sit inline in the same row as the logo and cart icon,
+               centered in the space between them. On mobile the same elements are
+               relocated by JS into the sidebar instead, so this slot stays empty and
+               hidden rather than reserving a second row. */
 .header-nav {
   display: none;
   flex: 1 1 auto;
@@ -288,12 +288,12 @@ body.experience-kids .brand-name {
 }
 
 /* On narrow phones the header row runs out of room: logo + two 44px icon
-             buttons + wrap padding leave very little space for the brand text, and
-             "Stilletos Decor" in all-caps serif with wide letter-spacing was
-             overflowing/clipping silently (overflow-x:hidden on body hides the
-             cut-off instead of scrolling to it). Shrink the brand text and let the
-             block truncate gracefully as a last resort instead of overlapping the
-             header actions. */
+               buttons + wrap padding leave very little space for the brand text, and
+               "Stilletos Decor" in all-caps serif with wide letter-spacing was
+               overflowing/clipping silently (overflow-x:hidden on body hides the
+               cut-off instead of scrolling to it). Shrink the brand text and let the
+               block truncate gracefully as a last resort instead of overlapping the
+               header actions. */
 @media (max-width: 420px) {
   .brand-name {
     font-size: 15px;
@@ -348,7 +348,7 @@ body.experience-kids .icon-btn:hover {
 }
 
 /* ---------- Mobile hamburger trigger ----------
-                   Hidden on desktop, where nav links live inline in the header row. */
+                     Hidden on desktop, where nav links live inline in the header row. */
 .nav-hamburger {
   display: none;
 }
@@ -363,9 +363,9 @@ body.experience-kids .icon-btn:hover {
 }
 
 /* ---------- Mobile nav sidebar ----------
-                   On mobile, the same #adult-nav-links / #kids-nav-links elements used
-                   in the desktop header row are relocated here by JS, so click handlers
-                   and the adult/kids hidden-toggle logic keep working unchanged. */
+                     On mobile, the same #adult-nav-links / #kids-nav-links elements used
+                     in the desktop header row are relocated here by JS, so click handlers
+                     and the adult/kids hidden-toggle logic keep working unchanged. */
 .nav-sidebar-backdrop {
   position: fixed;
   inset: 0;
@@ -468,11 +468,11 @@ body.experience-kids .cart-badge {
   overflow-x: auto;
 }
 /* .tab-list's own `display: flex` is an author rule, so it silently beats
-             the browser's built-in `[hidden] { display: none }` default even though
-             both have equal specificity - author styles always win over UA styles.
-             Without this, #adult-nav-links and #kids-nav-links (both `.tab-list`)
-             would stay visible together at all times regardless of their `hidden`
-             attribute, showing every nav link above both heroes simultaneously. */
+               the browser's built-in `[hidden] { display: none }` default even though
+               both have equal specificity - author styles always win over UA styles.
+               Without this, #adult-nav-links and #kids-nav-links (both `.tab-list`)
+               would stay visible together at all times regardless of their `hidden`
+               attribute, showing every nav link above both heroes simultaneously. */
 .tab-list[hidden] {
   display: none;
 }
@@ -686,6 +686,13 @@ body.experience-kids .social-btn:hover {
   height: 18px;
   fill: currentColor;
 }
+/* Instagram's icon is drawn as an outline (rounded square + lens + dot),
+     so it must stay unfilled or it renders as a solid block instead of the
+     recognizable Instagram glyph. */
+.social-btn svg.icon-instagram {
+  fill: none;
+  stroke: currentColor;
+}
 
 .footer-map-heading {
   text-align: center;
@@ -750,8 +757,8 @@ body.experience-kids .location-card {
   padding: 32px;
 }
 /* The location card switches to a white background in the kids theme, but
-               its text color was still inheriting the light pink used on the dark
-               purple footer, making it nearly invisible. Force a solid dark pink. */
+                 its text color was still inheriting the light pink used on the dark
+                 purple footer, making it nearly invisible. Force a solid dark pink. */
 body.experience-kids .location-info {
   color: var(--k-pink-dark);
 }
@@ -930,9 +937,9 @@ body.experience-kids .map-pin-tag {
 }
 
 /* The cart drawer's full-screen backdrop (z-index 50) sits above the
-                   floating toggle (z-index 45) by design, so it would otherwise swallow
-                   clicks meant for the toggle. Hide the toggle while the cart is open
-                   instead of leaving a dead, overlapping click target. */
+                     floating toggle (z-index 45) by design, so it would otherwise swallow
+                     clicks meant for the toggle. Hide the toggle while the cart is open
+                     instead of leaving a dead, overlapping click target. */
 body.cart-open .toggle-wrap {
   opacity: 0;
   transform: translateY(12px) scale(0.9);
@@ -1137,13 +1144,13 @@ body.nav-sidebar-open {
 }
 
 /* ---------- Videos are always muted, everywhere ----------
-             All gallery/lightbox videos are sound-off by design. Hide the native
-             mute button and volume slider (WebKit/Blink) so there's no visible
-             control that suggests sound can be turned on. Play/pause, scrubbing,
-             and fullscreen controls are untouched. A matching JS listener in app.js
-             forcibly re-mutes any video that somehow becomes unmuted (keyboard
-             shortcuts, browser quirks, etc.) as a backstop for browsers that don't
-             support hiding individual control buttons via CSS. */
+               All gallery/lightbox videos are sound-off by design. Hide the native
+               mute button and volume slider (WebKit/Blink) so there's no visible
+               control that suggests sound can be turned on. Play/pause, scrubbing,
+               and fullscreen controls are untouched. A matching JS listener in app.js
+               forcibly re-mutes any video that somehow becomes unmuted (keyboard
+               shortcuts, browser quirks, etc.) as a backstop for browsers that don't
+               support hiding individual control buttons via CSS. */
 video::-webkit-media-controls-mute-button,
 video::-webkit-media-controls-volume-slider,
 video::-webkit-media-controls-volume-slider-container,
