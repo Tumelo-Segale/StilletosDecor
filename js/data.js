@@ -210,7 +210,7 @@ window.STILLETOS_DATA = (function () {
         "Custom Creative Centerpieces",
         "Custom Branded Bottled Water",
         "Stunning Cake Table setup",
-        "Delectable Milkshakes for all guests",
+        "Delectable Milkshakes",
       ],
       prices: { 10: "R7 500", 15: "R8 500", 20: "R9 500" },
     },
