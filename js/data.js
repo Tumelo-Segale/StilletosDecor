@@ -41,7 +41,7 @@ window.STILLETOS_DATA = (function () {
     },
     {
       id: "rent-3",
-      name: "Louis Chair",
+      name: "Plastic Louis Chair",
       category: "furniture",
       price: "R40",
       image: "assets/images/rentals/rent-3.jpg",
