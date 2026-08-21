@@ -71,7 +71,7 @@ window.STILLETOS_DATA = (function () {
   const KIDS_RENTALS = [
     {
       id: "kids-rent-1",
-      name: "Gold Vanity Chair",
+      name: "Gold Butterfly Chair",
       category: "kids",
       price: "R40",
       image: "assets/images/rentals/kids-rent-1.jpg",
