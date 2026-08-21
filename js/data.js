@@ -105,8 +105,15 @@ window.STILLETOS_DATA = (function () {
       price: "R35",
       image: "assets/images/rentals/kids-rent-5.jpg",
     },
-    {
+         {
       id: "kids-rent-6",
+      name: "Brother Chair",
+      category: "kids",
+      price: "R40",
+      image: "assets/images/rentals/kids-rent-5.jpg",
+    },
+    {
+      id: "kids-rent-7",
       name: "Kids Throne Chair",
       category: "kids",
       price: "R120",
