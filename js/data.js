@@ -41,7 +41,7 @@ window.STILLETOS_DATA = (function () {
     },
     {
       id: "rent-3",
-      name: "Louis Chair",
+      name: "Plastic Louis Chair",
       category: "furniture",
       price: "R40",
       image: "assets/images/rentals/rent-3.jpg",
@@ -71,7 +71,7 @@ window.STILLETOS_DATA = (function () {
   const KIDS_RENTALS = [
     {
       id: "kids-rent-1",
-      name: "Gold Vanity Chair",
+      name: "Gold Butterfly Chair",
       category: "kids",
       price: "R40",
       image: "assets/images/rentals/kids-rent-1.jpg",
@@ -105,8 +105,15 @@ window.STILLETOS_DATA = (function () {
       price: "R35",
       image: "assets/images/rentals/kids-rent-5.jpg",
     },
-    {
+         {
       id: "kids-rent-6",
+      name: "Brother Chair",
+      category: "kids",
+      price: "R40",
+      image: "assets/images/rentals/kids-rent-5.jpg",
+    },
+    {
+      id: "kids-rent-7",
       name: "Kids Throne Chair",
       category: "kids",
       price: "R120",
@@ -244,7 +251,7 @@ window.STILLETOS_DATA = (function () {
         "Custom Creative Centerpieces",
         "Custom Branded Bottled Water",
         "Stunning Cake Table setup",
-        "Delectable Milkshakes for all guests",
+        "Delectable Milkshakes",
       ],
       prices: { 10: "R7 500", 15: "R8 500", 20: "R9 500" },
     },
