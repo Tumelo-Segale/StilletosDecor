@@ -112,6 +112,27 @@ window.STILLETOS_DATA = (function () {
       price: "R120",
       image: "assets/images/rentals/kids-rent-6.jpg",
     },
+    {
+      id: "kids-rent-7",
+      name: "Kiddies CrossBack Chair",
+      category: "kids",
+      price: "R20",
+      image: "assets/images/rentals/kids-rent-7.jpg",
+    },
+    {
+      id: "kids-acc-3",
+      name: "White Jumping Castle",
+      category: "kids",
+      price: "R1200",
+      image: "assets/images/rentals/kids-acc-3.jpg",
+    },
+    {
+      id: "kids-acc-4",
+      name: "Small 3x3 Jumping Castle",
+      category: "kids",
+      price: "R550",
+      image: "assets/images/rentals/kids-acc-4.jpg",
+    },
   ];
 
   const KIDS_ACCESSORIES = [
@@ -130,18 +151,31 @@ window.STILLETOS_DATA = (function () {
       image: "assets/images/rentals/kids-acc-2.jpg",
     },
     {
-      id: "kids-acc-3",
-      name: "White Jumping Castle",
+      id: "kids-acc-5",
+      name: "Directional Stand",
       category: "kids accessory",
-      price: "R1200",
-      image: "assets/images/rentals/kids-acc-3.jpg",
+      price: "R150",
+      image: "assets/images/rentals/kids-acc-5.jpg",
     },
     {
-      id: "kids-acc-4",
-      name: "Small 3x3 Jumping Castle",
+      id: "kids-acc-6",
+      name: "Entrance Arch",
       category: "kids accessory",
-      price: "R550",
-      image: "assets/images/rentals/kids-acc-4.jpg",
+      price: "R450",
+      image: "assets/images/rentals/kids-acc-6.jpg",
+    },
+    {
+      id: "kids-acc-7",
+      name: "Pop Corn Machine",
+      category: "kids accessory",
+      price: "R650",
+      image: "assets/images/rentals/kids-acc-7.jpg",
+      colors: [
+        {
+          name: "With Extras (2kg Corn, 20 Containers & Spices)",
+          price: "R800",
+        },
+      ],
     },
   ];
 
