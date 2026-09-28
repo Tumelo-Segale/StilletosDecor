@@ -140,6 +140,34 @@ window.STILLETOS_DATA = (function () {
       price: "R550",
       image: "assets/images/rentals/kids-acc-4.jpg",
     },
+    {
+      id: "kids-rent-11",
+      name: "3 in 1 Jumping Castle",
+      category: "kids",
+      price: "R950",
+      image: "assets/images/rentals/kids-rent-11.jpeg",
+    },
+    {
+      id: "kids-rent-12",
+      name: "2 in 1 Jumping Castle",
+      category: "kids",
+      price: "R750",
+      image: "assets/images/rentals/kids-rent-12.jpeg",
+    },
+    {
+      id: "kids-rent-13",
+      name: "BackDrop",
+      category: "kids",
+      price: "R500",
+      image: "assets/images/rentals/kids-rent-10.jpeg",
+    },
+    {
+      id: "kids-rent-14",
+      name: "Party Pack Stand",
+      category: "kids",
+      price: "R550",
+      image: "assets/images/rentals/kids-rent-13.jpeg",
+    },
   ];
 
   const KIDS_ACCESSORIES = [
