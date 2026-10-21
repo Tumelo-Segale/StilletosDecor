@@ -374,6 +374,8 @@ window.STILLETOS_DATA = (function () {
     "assets/images/kids-gallery-22.jpeg",
     "assets/images/kids-gallery-23.jpeg",
     "assets/images/kids-gallery-24.mp4",
+    "assets/images/kids-gallery-25.mp4",
+    "assets/images/kids-gallery-26.mp4",
   ];
 
   return {
